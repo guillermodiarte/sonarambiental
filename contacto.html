@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - SonarAmbiental</title>
+  <meta name="description" content="Contáctese con SonarAmbiental. Asesoramiento profesional en Mendoza.">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(76, 167, 214, 0.1);
+    }
+
+    .map-container {
+      height: 400px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <!-- V2 Logo -->
+        <img src="img/logo_v3.png" alt="SonarAmbiental Logo" class="logo">
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Menú">☰</button>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+          <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+          <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+          <li><a href="blog.html" class="nav-link">Novedades</a></li>
+          <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section bg-off-white" style="padding-top: 120px;">
+    <div class="container">
+      <div class="section-title">
+        <h1>Contacto</h1>
+        <p>Estamos listos para ayudar a su empresa a crecer de manera sostenible.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Contact Form -->
+        <div
+          style="background: white; padding: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
+          <h2 class="text-primary" style="font-size: 1.8rem;">Envíenos un mensaje</h2>
+          <form action="#" method="POST"> <!-- Static form -->
+            <div class="form-group">
+              <label for="nombre" class="form-label">Nombre Completo</label>
+              <input type="text" id="nombre" name="nombre" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="asunto" class="form-label">Asunto</label>
+              <input type="text" id="asunto" name="asunto" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" class="form-textarea" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Consulta</button>
+          </form>
+        </div>
+
+        <!-- Info & Map -->
+        <div class="flex flex-col gap-md">
+          <div>
+            <h2 class="text-primary" style="font-size: 1.8rem;">Información</h2>
+            <ul style="margin-top: 1rem; list-style: none;">
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 1.5rem;">📍</span>
+                <div>
+                  <strong>Ubicación:</strong><br>
+                  Av. Emilio Civit 123, Mendoza, Argentina
+                </div>
+              </li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 1.5rem;">✉️</span>
+                <div>
+                  <strong>Email:</strong><br>
+                  contacto@sonarambiental.com
+                </div>
+              </li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 1.5rem;">📱</span>
+                <div>
+                  <strong>Teléfono / WhatsApp:</strong><br>
+                  +54 261 123 4567
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="map-container">
+            <!-- Embedded Google Map centered on Mendoza -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.627796593683!2d-68.84583858486026!3d-32.887222980938676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e093ec45179bf%3A0x205a78f6d20efa3a!2sMendoza%2C%20Capital%2C%20Mendoza!5e0!3m2!1ses!2sar!4v1646252123456!5m2!1ses!2sar"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <img src="img/logo_v3.png" alt="SonarAmbiental"
+            style="height: 40px; filter: brightness(0) invert(1); margin-bottom: 1rem;">
+          <p>Consultora de Gestión Ambiental comprometida con el desarrollo sostenible de Mendoza.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contacto</h3>
+          <ul class="footer-links">
+            <li>📍 Mendoza, Argentina</li>
+            <li>✉️ info@sonarambiental.com</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Enlaces</h3>
+          <ul class="footer-links">
+            <li><a href="nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 SonarAmbiental. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

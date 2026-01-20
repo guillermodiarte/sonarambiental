@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SonarAmbiental - Consultora de Gestión Ambiental en Mendoza</title>
+  <meta name="description"
+    content="Consultora especializada en gestión ambiental, sostenibilidad y evaluación de impacto ambiental en Mendoza y Cuyo.">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <!-- V2 Logo -->
+        <img src="img/logo_v3.png" alt="SonarAmbiental Logo" class="logo">
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Menú">☰</button>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Inicio</a></li>
+          <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+          <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+          <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+          <li><a href="blog.html" class="nav-link">Novedades</a></li>
+          <!-- Update Contact button to look consistent, removed 'btn btn-primary' classes, just nav-link -->
+          <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Sostenibilidad que impulsa el futuro</h1>
+      <p class="hero-subtitle">Soluciones integrales de gestión ambiental para el desarrollo productivo de Mendoza y la
+        región.</p>
+      <div class="flex gap-sm justify-center">
+        <a href="servicios.html" class="btn btn-primary">Nuestros Servicios</a>
+        <a href="contacto.html" class="btn btn-outline" style="color:white; border-color: white;">Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro / Stats Section -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="grid grid-2 items-center">
+        <div>
+          <h2 class="text-primary">Transformamos desafíos ambientales en oportunidades de crecimiento</h2>
+          <p style="margin-bottom: 2rem;">En SonarAmbiental, acompañamos a empresas y organismos públicos en el
+            cumplimiento normativo y la optimización de sus procesos, garantizando un equilibrio entre producción y
+            cuidado del entorno.</p>
+
+          <div class="flex gap-md">
+            <div>
+              <h3 class="text-accent" style="margin-bottom: 0;">+50</h3>
+              <p>Proyectos Realizados</p>
+            </div>
+            <div>
+              <h3 class="text-accent" style="margin-bottom: 0;">15+</h3>
+              <p>Años de Experiencia</p>
+            </div>
+            <div>
+              <h3 class="text-accent" style="margin-bottom: 0;">100%</h3>
+              <p>Cumplimiento</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <img src="img/services_1.png" alt="Equipo trabajando en campo"
+            style="border-radius: var(--radius-md); box-shadow: var(--shadow-hover);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Summary -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Qué Hacemos</h2>
+        <p>Brindamos asesoramiento técnico y legal para potenciar la sostenibilidad de tu proyecto.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="service-card">
+          <div class="service-icon">🌱</div>
+          <h3>Evaluación de Impacto</h3>
+          <p>Estudios completos para prever y mitigar efectos ambientales en nuevos proyectos.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Auditorías y Normativa</h3>
+          <p>Aseguramos el cumplimiento de todas las regulaciones provinciales y nacionales.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">♻️</div>
+          <h3>Gestión de Residuos</h3>
+          <p>Planes integrales para el tratamiento y reducción de residuos industriales.</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--spacing-md);">
+        <a href="servicios.html" class="btn btn-outline">Ver todos los servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section (Carousel) -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-title">
+        <h2>Confían en Nosotros</h2>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-track">
+
+          <!-- Slide 1 -->
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="img/profile_1.png" alt="Carlos Villavicencio" class="testimonial-img">
+              <p class="quote">"El equipo de SonarAmbiental fue clave para la habilitación de nuestra nueva bodega.
+                Profesionalismo impecable."</p>
+              <h4>Carlos Villavicencio</h4>
+              <p class="text-accent">Gerente, Bodega Los Andes</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="img/profile_2.png" alt="Mariana López" class="testimonial-img">
+              <p class="quote">"Su asesoramiento en gestión de residuos nos permitió no solo cumplir la ley, sino
+                reducir costos operativos."</p>
+              <h4>Mariana López</h4>
+              <p class="text-accent">Directora Industrial, Constructora Cuyo</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="img/profile_3.png" alt="Esteban Gutierrez" class="testimonial-img">
+              <p class="quote">"Excelente disposición y conocimiento técnico. Nos ayudaron a resolver un conflicto
+                ambiental complejo."</p>
+              <h4>Esteban Gutierrez</h4>
+              <p class="text-accent">Consultor Independiente</p>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="img/profile_4.png" alt="Arq. Patricia Mendez" class="testimonial-img">
+              <p class="quote">"Integramos a SonarAmbiental desde el diseño de nuestros proyectos y el resultado siempre
+                es superior."</p>
+              <h4>Arq. Patricia Mendez</h4>
+              <p class="text-accent">Estudio de Arquitectura PM</p>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="img/profile_5.png" alt="Roberto Sanchez" class="testimonial-img">
+              <p class="quote">"Muy recomendables para obras civiles de gran envergadura. Cumplen los plazos
+                rigurosamente."</p>
+              <h4>Roberto Sanchez</h4>
+              <p class="text-accent">Jefe de Obra, Vialidad Norte</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="carousel-nav">
+          <!-- Indicators generated by JS usually, but lets hardcode for simplicity or empty div -->
+          <!-- JS will handle generation or active class toggling -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section text-center" style="background-color: var(--primary-color); color: white;">
+    <div class="container">
+      <h2 style="color: white; margin-bottom: 1rem;">¿Listo para iniciar tu proyecto sostenible?</h2>
+      <p style="margin-bottom: 2rem; opacity: 0.9;">Contactanos hoy para una primera asesoría sin cargo.</p>
+      <a href="contacto.html" class="btn"
+        style="background-color: var(--accent-color); color: var(--dark-text);">Hablemos</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <img src="img/logo_v3.png" alt="SonarAmbiental"
+            style="height: 40px; filter: brightness(0) invert(1); margin-bottom: 1rem;">
+          <p>Consultora de Gestión Ambiental comprometida con el desarrollo sostenible de Mendoza.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contacto</h3>
+          <ul class="footer-links">
+            <li>📍 Mendoza, Argentina</li>
+            <li>✉️ info@sonarambiental.com</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Enlaces</h3>
+          <ul class="footer-links">
+            <li><a href="nosotros.html">Sobre Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 SonarAmbiental. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
