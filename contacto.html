@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
     rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .contact-grid {
@@ -80,6 +82,12 @@
           <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
           <li><a href="blog.html" class="nav-link">Novedades</a></li>
           <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+          <li>
+            <a href="https://api.whatsapp.com/send?phone=5492612515849&text=Hola%20mi%20nombre%20es%20%0AQuiero%20hacerte%20una%20consulta%20sobre%20el%20siguiente%20tema%20(marque%20con%20una%20X%20el%20tema%20interesado)%0AEstudio%20de%20Impacto%20Ambiental:%20%0AGestion%20de%20Residuos:%20%0AOtras%20Consultas%20Ambientales:%20%20"
+              target="_blank" class="nav-link" aria-label="Chat on WhatsApp">
+              <i class="fab fa-whatsapp" style="font-size: 1.25rem;"></i>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -146,13 +154,24 @@
                 </div>
               </li>
             </ul>
-          </div>
 
-          <div class="map-container">
-            <!-- Embedded Google Map centered on Mendoza -->
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.627796593683!2d-68.84583858486026!3d-32.887222980938676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e093ec45179bf%3A0x205a78f6d20efa3a!2sMendoza%2C%20Capital%2C%20Mendoza!5e0!3m2!1ses!2sar!4v1646252123456!5m2!1ses!2sar"
-              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <!-- Premium WhatsApp CTA Between Info and Map -->
+            <div style="margin: 1.5rem 0;">
+              <a href="https://api.whatsapp.com/send?phone=5492612515849&text=Hola%20mi%20nombre%20es%20%0AQuiero%20hacerte%20una%20consulta%20sobre%20el%20siguiente%20tema%20(marque%20con%20una%20X%20el%20tema%20interesado)%0AEstudio%20de%20Impacto%20Ambiental:%20%0AGestion%20de%20Residuos:%20%0AOtras%20Consultas%20Ambientales:%20%20"
+                target="_blank" class="btn"
+                style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 10px; background-color: #25D366; color: white; border: none; font-size: 1.1rem; padding: 1rem; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); transition: transform 0.2s, box-shadow 0.2s;">
+                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                <span>Enviar Mensaje por WhatsApp</span>
+              </a>
+            </div>
+
+            <div class="map-container">
+              <!-- Embedded Google Map centered on Mendoza -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.627796593683!2d-68.84583858486026!3d-32.887222980938676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e093ec45179bf%3A0x205a78f6d20efa3a!2sMendoza%2C%20Capital%2C%20Mendoza!5e0!3m2!1ses!2sar!4v1646252123456!5m2!1ses!2sar"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
           </div>
         </div>
       </div>
