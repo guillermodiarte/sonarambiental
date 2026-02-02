@@ -217,6 +217,7 @@ img {
 .nav-links {
     display: flex;
     gap: var(--spacing-md);
+    align-items: center;
 }
 
 .nav-link {
@@ -240,6 +241,34 @@ img {
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 100%;
+}
+
+/* WhatsApp Button in Nav */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #25D366;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebc57;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    color: white !important;
+}
+
+.btn-whatsapp i {
+    font-size: 1.25rem;
 }
 
 /* Fix for Contact Button in Nav to look consistent */
@@ -267,7 +296,7 @@ img {
     height: 90vh;
     /* Full viewport height mostly */
     min-height: 600px;
-    background-image: url('../img/hero.png');
+    background-image: url('../img/hero_mendoza.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
