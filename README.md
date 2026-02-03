@@ -30,7 +30,7 @@ El sitio se adapta a todos los dispositivos, asegurando una correcta visualizaci
 
 | Desktop | Mobile |
 |Str |Str |
-| ![Desktop](img/preview_desktop.png) | <img src="img/preview_mobile.png" width="200"> |
+| ![Desktop](img/preview_desktop.png) | <img src="img/preview_mobile_1.png" width="200"> <br> <img src="img/preview_mobile_2.png" width="200"> |
 
 ## 🛠️ Cómo ejecutar localmente
 
