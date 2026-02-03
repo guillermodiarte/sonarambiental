@@ -568,7 +568,17 @@ img {
 
     .mobile-menu-btn {
         display: block;
+        font-size: 2.5rem;
+        /* Increased size */
+        order: -1;
+        /* Move to the left */
+        margin-right: auto;
+        /* Push everything else to the right if needed, though space-between handles it */
+        padding-left: 0;
+        /* Align closely to the edge */
     }
+
+
 
     .hero-title {
         font-size: 2.5rem;
