@@ -73,11 +73,13 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17963828051"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'AW-17963828051');
   </script>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -122,25 +124,61 @@
         <div
           style="background: white; padding: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
           <h2 class="text-primary" style="font-size: 1.8rem;">Envíenos un mensaje</h2>
-          <form action="#" method="POST"> <!-- Static form -->
+
+          <form action="procesar_formulario.php" method="POST">
+
+            <!-- Honeypot invisible anti bots -->
+            <input type="text" name="empresa_web" style="display:none">
+
             <div class="form-group">
-              <label for="nombre" class="form-label">Nombre Completo</label>
-              <input type="text" id="nombre" name="nombre" class="form-input" required>
+              <label class="form-label">Nombre y Apellido *</label>
+              <input type="text" name="nombre" class="form-input" required>
             </div>
+
             <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" name="email" class="form-input" required>
+              <label class="form-label">Empresa *</label>
+              <input type="text" name="empresa" class="form-input" required>
             </div>
+
             <div class="form-group">
-              <label for="asunto" class="form-label">Asunto</label>
-              <input type="text" id="asunto" name="asunto" class="form-input">
+              <label class="form-label">Email corporativo *</label>
+              <input type="email" name="email" class="form-input" required>
             </div>
+
             <div class="form-group">
-              <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows="5" class="form-textarea" required></textarea>
+              <label class="form-label">Teléfono *</label>
+              <input type="tel" name="telefono" class="form-input" required>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Consulta</button>
+
+            <div class="form-group">
+              <label class="form-label">Tipo de servicio requerido *</label>
+              <select name="servicio" class="form-input" required>
+                <option value="">Seleccione una opción</option>
+                <option>Estudio de Impacto Ambiental</option>
+                <option>Gestión de Residuos Peligrosos</option>
+                <option>Habilitación Ambiental</option>
+                <option>Plan de Gestión Ambiental</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Detalle de la consulta *</label>
+              <textarea name="mensaje" rows="5" class="form-textarea" required></textarea>
+            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="6LcwRXEsAAAAAOAnSxfTzR1DHs0oQRIUnhl__bLe">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Solicitar Asesoramiento
+            </button>
+
           </form>
+
         </div>
 
         <!-- Info & Map -->
@@ -152,7 +190,7 @@
                 <span style="font-size: 1.5rem;">✉️</span>
                 <div>
                   <strong>Email:</strong><br>
-                  contacto@sonarambiental.com
+                  mariadelapazacosta87@gmail.com
                 </div>
               </li>
               <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
