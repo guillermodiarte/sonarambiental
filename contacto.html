@@ -68,6 +68,68 @@
       overflow: hidden;
       box-shadow: var(--shadow-soft);
     }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      backdrop-filter: blur(4px);
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: var(--radius-md);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-icon {
+      font-size: 4rem;
+      color: #28a745;
+      margin-bottom: 1rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .modal-text {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .modal-btn {
+      width: 100%;
+      padding: 1rem;
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17963828051"></script>
@@ -125,7 +187,7 @@
           style="background: white; padding: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
           <h2 class="text-primary" style="font-size: 1.8rem;">Envíenos un mensaje</h2>
 
-          <form action="procesar_formulario.php" method="POST">
+          <form id="contactForm" action="procesar_formulario.php" method="POST">
 
             <!-- Honeypot invisible anti bots -->
             <input type="text" name="empresa_web" style="display:none">
@@ -136,12 +198,12 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label">Empresa *</label>
-              <input type="text" name="empresa" class="form-input" required>
+              <label class="form-label">Empresa (Opcional)</label>
+              <input type="text" name="empresa" class="form-input">
             </div>
 
             <div class="form-group">
-              <label class="form-label">Email corporativo *</label>
+              <label class="form-label">Email *</label>
               <input type="email" name="email" class="form-input" required>
             </div>
 
@@ -173,7 +235,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <button id="submitBtn" type="submit" class="btn btn-primary" style="width: 100%;">
               Solicitar Asesoramiento
             </button>
 
@@ -248,7 +310,120 @@
       </div>
     </div>
   </footer>
+  <!-- Modal -->
+  <div id="thanksModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2 class="modal-title">¡Muchas Gracias!</h2>
+      <p class="modal-text">
+        Su consulta ha sido enviada correctamente.<br>
+        Nos comunicaremos con usted a la brevedad.
+      </p>
+      <button id="closeModal" class="btn btn-primary modal-btn">Aceptar</button>
+    </div>
+  </div>
+
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const modal = document.getElementById('thanksModal');
+      const closeModal = document.getElementById('closeModal');
+      let autoCloseTimeout;
+
+      const showModal = () => {
+        modal.classList.add('active');
+        autoCloseTimeout = setTimeout(hideModal, 3000);
+      };
+
+      const hideModal = () => {
+        modal.classList.remove('active');
+        if (autoCloseTimeout) clearTimeout(autoCloseTimeout);
+        form.reset();
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) {
+          grecaptcha.reset();
+        }
+      };
+
+      closeModal.addEventListener('click', hideModal);
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // JS validation to ensure all required fields are filled
+        const formData = new FormData(form);
+        const requiredFields = ['nombre', 'email', 'telefono', 'servicio', 'mensaje'];
+        let isValid = true;
+
+        for (const field of requiredFields) {
+          const val = formData.get(field);
+          if (!val || val.trim() === '') {
+            isValid = false;
+            break;
+          }
+        }
+
+        if (!isValid) {
+          alert('Por favor complete todos los campos obligatorios.');
+          return;
+        }
+
+        const email = formData.get('email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Por favor ingrese un email válido.');
+          return;
+        }
+
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() === "") {
+          alert('Por favor complete el reCAPTCHA.');
+          return;
+        }
+
+        // Disable button while sending
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json' // Explicitly ask for JSON
+            }
+          });
+
+          // Just to be safe if server has errors and outputs text
+          const responseText = await response.text();
+          console.log("Raw Server Response:", responseText); // Debugging line
+
+          let result;
+          try {
+            result = JSON.parse(responseText);
+          } catch (err) {
+            console.error('Server returned invalid JSON:', responseText);
+            throw new Error('Respuesta inválida del servidor');
+          }
+
+          if (result.success) {
+            showModal();
+          } else {
+            alert('Error: ' + (result.message || 'Se produjo un error al enviar.'));
+          }
+        } catch (error) {
+          console.error('Fetch Error:', error);
+          alert('Hubo un error de conexión o de servidor. Por favor intente nuevamente.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

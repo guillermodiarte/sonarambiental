@@ -1,32 +1,45 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
+require __DIR__ . '/PHPMailer/Exception.php';
+require __DIR__ . '/PHPMailer/PHPMailer.php';
+require __DIR__ . '/PHPMailer/SMTP.php';
+
+$SMTP_USER = 'contacto@sonarambiental.com';
+$SMTP_PASS = 'Gad130687@';
+
+$DESTINO = 'mariadelapazacosta87@gmail.com';
 
 $mail = new PHPMailer(true);
 
 try {
+
   $mail->isSMTP();
   $mail->Host = 'smtp.hostinger.com';
   $mail->SMTPAuth = true;
-  $mail->Username = 'contacto@sonarambiental.com';
-  $mail->Password = 'TU_PASSWORD_REAL';
-  $mail->SMTPSecure = 'ssl';
+  $mail->Username = $SMTP_USER;
+  $mail->Password = $SMTP_PASS;
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
   $mail->Port = 465;
+  $mail->CharSet = 'UTF-8';
 
-  $mail->setFrom('contacto@sonarambiental.com', 'Test Sonar');
-  $mail->addAddress('mariadelapazacosta87@gmail.com');
+  $mail->SMTPDebug = 2;
 
-  $mail->Subject = 'TEST SMTP HOSTINGER';
-  $mail->Body = 'Si recibís este correo, el SMTP funciona correctamente.';
+  $mail->setFrom($SMTP_USER, 'Sonar Ambiental');
+  $mail->addAddress($DESTINO);
+
+  $mail->Subject = 'TEST SMTP Hostinger';
+  $mail->Body = 'Prueba SMTP exitosa';
 
   $mail->send();
-  echo "OK - Mail enviado correctamente";
+
+  echo "<h2 style='color:green'>✅ Mail enviado correctamente</h2>";
 
 } catch (Exception $e) {
-  echo "ERROR: {$mail->ErrorInfo}";
+  echo "<h2 style='color:red'>❌ Error SMTP</h2>";
+  echo "<pre>" . $mail->ErrorInfo . "</pre>";
 }
